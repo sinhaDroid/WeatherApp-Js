@@ -166,7 +166,7 @@ const UI = (function () {
         showApp,
         loadApp,
         drawWeatherData
-    }
+    };
 
 })();
 
@@ -192,7 +192,7 @@ const LOCALSTORAGE = (function () {
     const get = () => {
         if (localStorage.getItem('savedCities') != null)
             savedCities = JSON.parse(localStorage.getItem('savedCities'));
-    }
+    };
 
     // remove an element from "savedCities" and then update the local storage
     const remove = (index) => {
@@ -203,7 +203,7 @@ const LOCALSTORAGE = (function () {
             // update
             localStorage.setItem('savedCities', JSON.stringify(savedCities));
         }
-    }
+    };
 
     // getter "savedCities"
     const getSavedCities = () => savedCities;
@@ -213,7 +213,7 @@ const LOCALSTORAGE = (function () {
         get,
         remove,
         getSavedCities
-    }
+    };
 })();
 
 
@@ -285,7 +285,7 @@ const SAVEDCITIES = (function () {
 
     return {
         drawCity
-    }
+    };
 })();
 
 
@@ -312,7 +312,7 @@ const GETLOCATION = (function () {
         addCityBtn.classList.add('disabled');
 
         // get weather data
-        WEATHER.getWeather(location, true)
+        WEATHER.getWeather(location, true);
     }
 
     // check for changes in input element and set it as enable or disable
@@ -359,11 +359,11 @@ const WEATHER = (function () {
         axios.get(url)
             .then((res) => {
                 // draw the data on the interface
-                UI.drawWeatherData(res.data, location)
+                UI.drawWeatherData(res.data, location);
             })
             .catch((err) => {
                 console.error(err);
-            })
+            });
     };
 
     const getWeather = (location, save) => {
@@ -400,13 +400,13 @@ const WEATHER = (function () {
                 _getDarkSkyData(darkskyURL, location);
             })
             .catch((err) => {
-                console.log(err)
-            })
+                console.log(err);
+            });
     };
 
     return {
         getWeather
-    }
+    };
 })();
 
 // /* **********************************************
@@ -427,7 +427,7 @@ window.onload = function () {
         // if so then draw each saved city inside the menu
         cities.forEach((city) => SAVEDCITIES.drawCity(city));
         // get weather for the last city added
-        WEATHER.getWeather(cities[cities.length - 1], false)
+        WEATHER.getWeather(cities[cities.length - 1], false);
     }
     // show the app in case that local storage was empty
     else UI.showApp();
