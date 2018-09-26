@@ -92,7 +92,7 @@ const UI = (function () {
         document.querySelector("#summary-label").innerHTML = currentlyData.summary;
         // set temperature from Fahrenheit -> Celcius
         document.querySelector("#degrees-label").innerHTML = Math.round((
-            currentlyData.temperature - 32) * 5 / 9) + '&#176;'
+            currentlyData.temperature - 32) * 5 / 9) + '&#176;';
 
         // set humidty
         document.querySelector("#humidity-label").innerHTML = Math.round(currentlyData.humidity * 100) + '%';
@@ -103,7 +103,7 @@ const UI = (function () {
         // ===================
         // delete previously added items
         while (dailyWeatherWrapper.children[1]) {
-            dailyWeatherWrapper.removeChild(dailyWeatherWrapper.children[1])
+            dailyWeatherWrapper.removeChild(dailyWeatherWrapper.children[1]);
         }
 
         // build weather data for the next seven days
@@ -112,7 +112,7 @@ const UI = (function () {
             dailyWeatherModel = dailyWeatherWrapper.children[0].cloneNode(true);
             dailyWeatherModel.classList.remove('display-none');
             // set the day
-            day = weekDays[new Date(dailyData[i].time * 1000).getDay()]
+            day = weekDays[new Date(dailyData[i].time * 1000).getDay()];
             dailyWeatherModel.children[0].children[0].innerHTML = day;
             // set min/max temperature for the next days in Celcius
             maxMinTemp = Math.round((dailyData[i].temperatureMax - 32) * 5 / 9) + '&#176;' + '/' + Math.round((dailyData[i].temperatureMin - 32) * 5 / 9) + '&#176;';
@@ -129,7 +129,7 @@ const UI = (function () {
         // ===================
         // delete previously added items
         while (hourlyWeatherWrapper.children[1]) {
-            hourlyWeatherWrapper.removeChild(hourlyWeatherWrapper.children[1])
+            hourlyWeatherWrapper.removeChild(hourlyWeatherWrapper.children[1]);
         }
 
         // build weather data for the next 24 hours
@@ -261,7 +261,7 @@ const SAVEDCITIES = (function () {
         // remove from local storage and interface
         LOCALSTORAGE.remove(cityIndex);
         cityWrapper.remove();
-    }
+    };
 
     // click event on minus button
     // add an event on the document, because these elements will be created dinamically
@@ -313,7 +313,7 @@ const GETLOCATION = (function () {
 
         // get weather data
         WEATHER.getWeather(location, true);
-    }
+    };
 
     // check for changes in input element and set it as enable or disable
     locationInput.addEventListener('input', function () {
@@ -327,7 +327,7 @@ const GETLOCATION = (function () {
             addCityBtn.setAttribute('disabled', 'true');
             addCityBtn.classList.add('disabled');
         }
-    })
+    });
 
     addCityBtn.addEventListener('click', _addCity);
 })();
