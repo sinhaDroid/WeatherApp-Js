@@ -344,7 +344,7 @@ const GETLOCATION = (function () {
 const WEATHER = (function () {
 
     // private keys for the api
-    const darkSkyKey = '7f20e4610039df26c1e19328bbcf14ce',
+    const darkSkyKey = 'dcd791a82d798b1edfa3f9a192fe6977',
         geocoderKey = '63c1827aae5042659dc61c35526f0414';
 
 
