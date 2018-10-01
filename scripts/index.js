@@ -345,7 +345,7 @@ const WEATHER = (function () {
 
     // private keys for the api
     const darkSkyKey = '7f20e4610039df26c1e19328bbcf14ce',
-        geocoderKey = '6f777fc409804277843caf8e13bb6736';
+        geocoderKey = '63c1827aae5042659dc61c35526f0414';
 
 
     // return a valid URL for OpenCage API
